@@ -1,0 +1,191 @@
+#Auto generated Octane revision tag
+@TID49004REV0.4.0
+Feature: Teste Funcional do Micro Serviço de Melhor Oferta do Proxy Whatsapp (Planilha WhatsApp_Melhor_Oferta.xls)
+
+	Background:
+		Given configurar url da api
+		
+	 Scenario Outline:	01.01 - Validar Resposta da Pergunta - Preciso de dinheiro
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta										|retornoBia            																					|feedback                     				   |
+	    |1		|Preciso de dinheiro							|dinheiro;empréstimo;pagar dívida;comprar imóvel;comprar veículo   										|ignorar 					 				   |
+	 	|2		|Preciso de um emprestimo						|tem credito;consignado;Simule;contrate;credito pessoal;empréstimo parcelado;credito parcelado			|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.10 - Validar Resposta da Pergunta - Como contratar o emprestimo que solicitei na agencia com liberação nas midias
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Como contratar o emprestimo que solicitei na agencia com liberação nas midias		|dinheiro;empréstimo;pagar dívida;comprar imóvel;comprar veículo   										|ignorar 					 				   |
+
+	 Scenario Outline:	01.16 - Validar Resposta da Pergunta - O que e credito consignado
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|O que e credito consignado															|solução de credito;taxas especiais;empresas privadas;servidores publicos   							|ignorar 					 				   |
+
+	 Scenario Outline:	01.17 - Validar Resposta da Pergunta - O que é e como contratar credito consignado
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|O que é e como contratar credito consignado										|solução de credito;taxas especiais;pensionistas;servidores publicos;Emprestimos;internet banking  		|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.23 - Validar Resposta da Pergunta - O que é e como contratar credito parcelado
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|O que é e como contratar credito parcelado											|solução de credito;pre-aprovado;fica disponivel em conta;usado como quiser						  		|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.28 - Validar Resposta da Pergunta - O que é e como contratar limite de credito pessoal
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|O que é e como contratar limite de credito pessoal									|solução de credito;fica disponivel em conta;para contratação;cobrir gastos						  		|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.34 - Validar Resposta da Pergunta - O que é e como contratar a antecipação de 13º salario
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|O que é e como contratar a antecipação de 13º salario;não esta disponivel			|solução de credito;antecipação;pre aprovado;antecipar											  		|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.40 - Validar Resposta da Pergunta - O que é e como contratar a antecipação do IR
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|O que é e como contratar a antecipação do IR										|solução de credito;restituição;antecipa;imposto de renda;imposto de renda							  	|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.46 - Validar Resposta da Pergunta - Como antecipar o 13º salario
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Como antecipar o 13º salario														|solução de credito;antecipação;pre aprovado;antecipar												  	|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.47 - Validar Resposta da Pergunta - Como antecipar o imposto de renda
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Como antecipar o imposto de renda													|solução de credito;antecipa;pre aprovado;restituição												  	|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.48 - Validar Resposta da Pergunta - Como simular ou contratar consignado
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Como simular ou contratar consignado												|solução de credito;aposentados;pensionistas										  					|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.49 - Validar Resposta da Pergunta - Onde contratar o credito consignado para funcionario de empresa privada?
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Onde contratar o credito consignado para funcionario de empresa privada?			|solução de credito;aposentados;pensionistas;esta disponivel											|ignorar 					 				   |
+	 
+	  Scenario Outline:	01.50 - Validar Resposta da Pergunta - Onde e possivel simular ou contratar o credito consignado INSS
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Onde e possivel simular ou contratar o credito consignado INSS						|solução de credito;aposentados;pensionistas;esta disponivel											|ignorar 					 				   |
+	 
+	  Scenario Outline:	01.51 - Validar Resposta da Pergunta - Onde contratar credito parcelado
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Onde contratar credito parcelado													|credito parcelado;Consignado;esta disponivel															|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.52 - Validar Resposta da Pergunta - Preciso de dinheiro
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Preciso de dinheiro																|dinheiro;faculdade;pagar dívida																		|ignorar 					 				   |
+	    |2		|Pagar divida																		|divida;em dia;em atraso																				|ignorar 					 				   |
+	    |3		|Pagar Em dia																		|Vamos lá;tem credito;Simule;contrate																	|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.53 - Validar Resposta da Pergunta - Como contratar um emprestimo
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Como contratar um emprestimo														|Simule;contrate;tem credito																			|ignorar 					 				   |
+
+	 Scenario Outline:	01.54 - Validar Resposta da Pergunta - Preciso de dinheiro para emprestimo
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta																			|retornoBia            																					|feedback                     				   |
+	    |1		|Preciso de dinheiro para emprestimo												|consultar;emprestimos;App Bradesco;emprestimo parcelado;consignado										|ignorar 					 				   |
+	 
+	 Scenario Outline:	01.03 - Validar Resposta da Pergunta - Quantas parcelas eu devo? (Informacional)
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							|retornoBia            																				|feedback                     				   |
+	    |1		|Quantas parcelas eu devo?			|saldo devedor;qual produto;cartão de crédito;devedor de empréstimo		       						|ignorar 					 				   |
+	 	|2		|De empréstimos						|tipo de empréstimo;crédito pessoal;crédito consignado;crédito imobiliário	       					|ignorar 					 				   |
+	     

@@ -1,0 +1,170 @@
+#Auto generated Octane revision tag
+@TID49003REV0.3.0 
+Feature: Teste Funcional do Micro Serviço De Melhor Oferta Real Time para o canal Whatsapp (Planilha WhatsApp_Melhor Oferta - Real Time.xls)
+
+	Background:
+		Given configurar url da api
+
+	Scenario Outline:	01.01 - Validar a funcionalidade Capitalização - Oferta.
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                                      | retornoBia                                            | feedback |
+			| 1     | Qual a idade mínima para contratar um título de capitalização | idade mínima;16 anos;proprietário;CPF;simulação agora | ignorar  |
+
+	Scenario Outline:	01.02 - Validar a funcionalidade Capitalização - Pedido.
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                       | retornoBia               | feedback |
+			| 1     | Por quais canais é possível adquirir um título | interesse;simulação;link | ignorar  |
+
+	Scenario Outline:	01.03 - Validar a funcionalidade Cartão Pre Aprovado - Pedido.
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                         | retornoBia                                    | feedback |
+			| 1     | Como Contratar Cartão de Credito | interesse;cartão de crédito;agora mesmo;pedir | ignorar  |
+
+	Scenario Outline:	01.04 - Validar a funcionalidade Cartão Pre Aprovado - Oferta.
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                       | retornoBia                                       | feedback |
+			| 1     | Como altero o limite do cartão de crédito visa | Vamos lá;4002 0022;0800 570 0022;55 11 4002 0022 | ignorar  |
+
+	Scenario Outline:	01.06 - Validar a funcionalidade Seguro Viagem - Pedido.
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                     | retornoBia                                                        | feedback |
+			| 1     | Como Contratar Seguro Viagem | interesse;viajar;tranquilidade;contrate agora mesmo;seguro viagem | ignorar  |
+
+	Scenario Outline:	01.07 - Validar a funcionalidade Seguro Viagem - Oferta.
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                     | retornoBia                                                  | feedback |
+			| 1     | O que o seguro viagem cobre? | variar;natural ou acidental;perda;roubo;corpo;tranquilidade | ignorar  |
+
+	Scenario Outline:	01.08 - Validar a funcionalidade Seguro Acidente Pessoal Premiavel - Oferta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                                    | retornoBia                                         | feedback |
+			| 1     | Qual a cobertura do seguro de acidentes pessoais premiável? | AP Premiável;morte acidental;contratar;link abaixo | ignorar  |
+
+	Scenario Outline:	01.09 - Validar a funcionalidade Seguro Acidente Pessoal Premiavel - Pedido
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                       | retornoBia                                       | feedback |
+			| 1     | Como Contratar Seguro Acidente | Interesse;simulação agora;gostar;clicando abaixo | ignorar  |
+
+	Scenario Outline:	01.11 - Validar a funcionalidade Emprestimo - Pedido
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                  | retornoBia                                                            | feedback |
+			| 1     | Como Contratar Emprestimo | Aplicativo, Internet Banking, Autoatendimento ou Agência;botão abaixo | ignorar  |
+
+	Scenario Outline:	01.12 - Validar a funcionalidade Emprestimo - Oferta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                  | retornoBia                                                        | feedback |
+			| 1     | Como Contratar Emprestimo | Inclusive;Limite de Crédito Pessoal;simulação;contrata;Toque aqui | ignorar  |
+
+	Scenario Outline:	01.13 - Validar a funcionalidade Aviso Viagem
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                    | retornoBia                               | feedback |
+			| 1     | Como Contratar Aviso Viagem | entendi;aviso de viagem;crédito;débito   | ignorar  |
+			| 2     | cartão de crédito           | certo;cartão;nacional;internacional      | ignorar  |
+			| 3     | internacional               | Muito bem;tipo;Elo;American Express;visa | ignorar  |
+			| 4     | visa                        | Entendi;correntista;Não;Bradesco         | ignorar  |
+			| 5     | correntista                 | Vamos lá;seguro viagem;agora mesmo       | ignorar  |
+
+	Scenario Outline:	01.15 - Validar a funcionalidade Aviso Viagem - Oferta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                    | retornoBia                                            | feedback |
+			| 1     | Como Contratar Aviso Viagem | fazer o seu aviso viagem agora mesmo;Toque para fazer | ignorar  |
+
+	Scenario Outline:	01.16 - Validar a funcionalidade Cambio Remessa Envio - Oferta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                                         | retornoBia                                | feedback |
+			| 1     | Quais operações de remessas podem  ser feitas pelo App Bradesco? | Você já pode;App Bradesco; tocar no botão | ignorar  |
+
+	Scenario Outline:	01.17 - Validar a funcionalidade Cambio Remessa Envio - Pedido
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                            | retornoBia                                          | feedback |
+			| 1     | Como enviar uma remessa ao exterior pelo aplicativo | Vamos lá!;Você já pode;App Bradesco; tocar no botão | ignorar  |
+
+	Scenario Outline:	01.18 - Validar a funcionalidade Renegociação - Oferta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                                                            | retornoBia                                              | feedback |
+			| 1     | Quais as condições para renegociarde dividas pelos canais digitais? | condições;Débito automático;Valor mínimo;IOF financiado | ignorar  |
+
+	Scenario Outline:	01.19 - Validar a funcionalidade Renegociação - Pedido
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+
+		Examples:
+			| passo | pergunta                    | retornoBia                                              | feedback |
+			| 1     | Como renegociar uma dívida? | Que bom que nos procurou!;Conte conosco;Renegocie agora | ignorar  |

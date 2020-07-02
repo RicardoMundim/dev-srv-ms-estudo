@@ -1,0 +1,134 @@
+#Auto generated Octane revision tag
+@TID47006REV0.4.0
+Feature: Teste Funcional de Derivação do Micro Serviço do Proxy Whatsapp
+
+	Background:
+		Given configurar url da api
+		
+	 Scenario Outline:	01 - Derivação após 2 feedbacks negativos
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      |retornoBia                             			 								|feedback                     				   |
+	    |1		|como abrir uma um conta pelo app 	      |Vai ser muito bom ter você com a gente			 								|Te ajudei;Digite S;N para NÃO 				   |
+		|2		|Não								      |Vamos lá;Chave de Segurança;abertura de conta									|Te ajudei;Digite S;N para NÃO 				   |
+		|3		|Não								      |Só um instante;consultando														|Te ajudei;Digite S;N para NÃO 				   |
+		
+		
+	Scenario Outline: 02 - Feedbacks Negativos  Sem Derivação
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      |retornoBia                             			 								|feedback                     				   |
+	    |1		|investimentos 	      					  |Eu posso ajudar você a investir; você já tem conta no Bradesco					|Te ajudei;Digite S;N para NÃO 				   |
+		|2		|Não								      |investir com o Bradesco;uma conta												|Te ajudei;Digite S;N para NÃO 				   |
+		|3		|Não								      |vou tentar de novo;conta corrente;Transferência;ÁgoraInvest						|Te ajudei;Digite S;N para NÃO 				   |										
+		|4		|Não								      |Ainda não sei essa resposta; você pode ligar;Telefones Úteis						|											   |
+		
+		
+	Scenario Outline: 03 - Verificar a apresentação  da frase de Feedback. Resposta  N   
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|Qual Chave de Segurança está cadastrada na conta 	      |ignorar								|Te ajudei;Digite S;N para NÃO |
+		|2		|N										      			  |ignorar								|Te ajudei;Digite S;N para NÃO |
+		|3		|N										      			  |Poxa;novamente;tarde					|							   |
+	
+	
+	Scenario Outline: 04 - Verificar a apresentação  da frase de Feedback. Resposta  Não
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|Qual Chave de Segurança está cadastrada na conta 	      |ignorar								|Te ajudei;Digite S;N para NÃO |
+		|2		|Não									      			  |ignorar								|Te ajudei;Digite S;N para NÃO |
+		|3		|Não									      			  |Poxa;novamente;tarde					|							   |
+	
+	Scenario Outline: 05 - Verificar a apresentação  da frase de Feedback. Resposta  NÃO  (Maiusculo)
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Qual Chave de Segurança está cadastrada na conta 	      |ignorar								|Te ajudei;Digite S;N para NÃO 	|
+		|2		|NÃO									      			  |ignorar								|Te ajudei;Digite S;N para NÃO  |
+		|3		|NÃO									      			  |Poxa;novamente;tarde					|								|
+
+	Scenario Outline: 06- Verificar a apresentação  da frase de Feedback. Resposta  NÃO  (Maiusculo)
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Qual Chave de Segurança está cadastrada na conta 	      |ignorar								|Te ajudei;Digite S;N para NÃO 	|
+		|2		|NÃO									      			  |ignorar								|Te ajudei;Digite S;N para NÃO  |
+		|3		|NÃO									      			  |Poxa;novamente;tarde					|								|
+
+	Scenario Outline: 07 - Verificar a apresentação  da frase de Feedback. Resposta  N   
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Qual Chave de Segurança está cadastrada na conta? 	      |ignorar								|Te ajudei;Digite S;N para NÃO 	|
+		|2		|N										      			  |ignorar								|Te ajudei;Digite S;N para NÃO 	|
+		|3		|N										      			  |Poxa;novamente;tarde					|								|
+		
+		
+	Scenario Outline: 08 - Verificar a apresentação  da frase de Feedback. Resposta  Não  
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                       |
+	    |1		|Qual Chave de Segurança está cadastrada na conta? 	      |ignorar								|Te ajudei;Digite S;N para NÃO  |
+		|2		|Não									      			  |ignorar						|								|
+		|3		|Não									      			  |Poxa;novamente;tarde					|								|
+	
+	
+	Scenario Outline: 09 - Verificar a apresentação  da frase de Feedback. Resposta  NÃO  (Maiusculo)  
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|Qual Chave de Segurança está cadastrada na conta? 	      |ignorar								|Te ajudei;Digite S;N para NÃO |
+		|2		|NÃO									      			  |ignorar								|Te ajudei;Digite S;N para NÃO |
+		|3		|NÃO									      			  |Poxa;novamente;tarde					|							   |
+		
+	
+	Scenario Outline: 10 - Verificar a apresentação  da frase de Feedback. Resposta  nao  (Minusculo sem acentuação)  
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Qual Chave de Segurança está cadastrada na conta? 	      |ignorar								|Te ajudei;Digite S;N para NÃO 	|
+		|2		|nao									      			  |ignorar								|Te ajudei;Digite S;N para NÃO 	|
+		|3		|nao									      			  |Poxa;novamente;tarde					|								|
+	

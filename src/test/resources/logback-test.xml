@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!--
+	Configurações de Logback de teste.
+	Testes não devem emitir log após o commit.
+-->
+<configuration debug="false">
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d  %-5level  %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<logger name="br.com.bradesco.coreopen.stateless">
+		<level value="off" />
+	</logger>
+
+    <root level="off">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

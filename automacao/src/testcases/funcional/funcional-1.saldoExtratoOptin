@@ -1,0 +1,117 @@
+#Auto generated Octane revision tag
+@TID47005REV0.5.0
+Feature: Teste Funcional Saldo e Extrato do Optin
+
+	Background:
+		Given configurar url da api
+		
+			
+	Scenario Outline:	01 - Validar o OPTIN  no WhatsApp para solicitação de Saldo
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|Saldo											 	      |utilizado;valor;alterações			|ignorar					   |
+		
+
+	Scenario Outline:	02 - Validar o OPTIN  no WhatsApp para solicitação de Ultimos Lançamentos 
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Ultimos Lançamentos							 	      |utilizado;valor;alterações			|ignorar					 	|
+		
+
+	Scenario Outline:	03 - Validar o OPTIN  no WhatsApp para solicitação de Saldo com conta negativa 
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Saldo											 	      |ajudar;produto;qual					|ignorar						|
+		
+		
+	Scenario Outline:	04 - Validar o OPTIN  no WhatsApp para solicitação de Extrato
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|Extrato											      |#;não entendi;no momento;consultas	|ignorar					   |
+	
+	
+	Scenario Outline:	05 - Validar o OPTIN  no WhatsApp Solicitar Saldo com mais de duas contas- Com Optin  
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Saldo											 	      |saldo;total;alterações				|ignorar					 	|
+	    |2		|850											 	      |saldo;total;alterações				|ignorar					 	|
+		
+	Scenario Outline:	06 - Validar Optin WhatsApp -Solicitar Saldo - Sem Optin
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     |
+	    |1		|Saldo												      |últimos;alterações;lançamentos		|ignorar					  |
+
+			
+	Scenario Outline:	07 - Validar Optin WhatsApp -Solicitar Ultimos Lançamentos - Sem Optin
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta										      				  |retornoBia            				|feedback                     	|
+	    |1		|Ultimos Lançamentos										 	      |últimos;alterações;lançamentos		|ignorar					 	|
+
+
+	Scenario Outline:	08 - Validar Optin WhatsApp -Solicitar Saldo Conta Negativa - Sem Optin
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#saldo											 	      |saldo;alterações;total				|ignorar					 	|
+
+
+	Scenario Outline:	09 - Validar Optin WhatsApp -Extrato -Sem Optin
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	   |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|Extrato											      |#;não entendi;no momento;consultas	|ignorar					   |
+	
+
+	Scenario Outline:	10 - Validar Optin WhatsApp -Solicitar Saldo com mais de duas contas- Sem Optin
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Saldo											 	      |últimos;lançamentos;alterações		|ignorar					 	|
+		

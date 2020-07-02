@@ -1,0 +1,250 @@
+#Auto generated Octane revision tag
+@TID47005REV0.5.0
+Feature: Teste Funcional Saldo e Extrato do Micro Serviço do Proxy Whatsapp (Desativado)
+
+	Background:
+		Given configurar url da api
+		
+			
+	Scenario Outline:	11 - Solicitação de Limite #Limite - Validar retorno da mensagem : #limite
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|#limite										 	      |utilizado;valor;alterações			|ignorar					   |
+		
+
+	Scenario Outline:	12 - Solicitação de Limite Qual o meu limite - Validar retorno da mensagem : Qual o meu limite
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|qual meu limite								 	      |utilizado;valor;alterações			|ignorar					 	|
+		
+
+	Scenario Outline:	13 - Solicitação de Limite - Validar retorno da mensagem : Limite
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|limite											 	      |ajudar;produto;qual					|ignorar						|
+		
+		
+	Scenario Outline:	17 - Solicitação de Limite - Validar retorno da mensagem : #meulimite
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                      |
+	    |1		|#meulimite											      |#;não entendi;no momento;consultas	|ignorar					   |
+	
+	
+	Scenario Outline:	18 - Validar Solicitação #Saldo - Validar retorno da mensagem : #saldo  
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#saldo											 	      |saldo;total;alterações				|ignorar					 	|
+	
+		
+	Scenario Outline:	19 - Validar Solicitação #ultimos lançamentos - Validar retorno da mensagem : #ultimos lançamentos
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     |
+	    |1		|#ultimos lançamentos								      |últimos;alterações;lançamentos		|ignorar					  |
+
+			
+	Scenario Outline:	20 - Validar Solicitação #extrato - Validar retorno da mensagem : #extrato
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#extrato										 	      |últimos;alterações;lançamentos		|ignorar					 	|
+
+
+	Scenario Outline:	21 - Validar Solicitação #Saldo Conta negativa - Validar retorno da mensagem : #saldo - Conta negativa
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#saldo											 	      |saldo;alterações;total				|ignorar					 	|
+
+
+	Scenario Outline:	26 - Solicitação de Limite #Limite Informação incorreta - Validar retorno da mensagem : #limite - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#lim											 	      |me conta;precisa;dinheiro			|ignorar					 	|
+		|2		|#limi													  |não entendi;te ajudar;digitou		|ignorar						|
+
+
+	Scenario Outline:	27 - Validar Solicitação #extra Informação incompleta - Validar retorno da mensagem : #extra - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#extra											 	      |últimos;lançamentos;alterações		|ignorar					 	|
+		
+
+	Scenario Outline:	28 - Validar Solicitação #extr Informação incompleta - Validar retorno da mensagem : #extr - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#extr											 	      |não entendi;#saldo;te ajudar			|ignorar					 	|
+		
+
+	Scenario Outline:	29 - Validar Solicitação #ultimos Informação incompleta - Validar retorno da mensagem : #ultimos - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#ultimos										 	      |não entendi;#saldo;te ajudar			|ignorar					 	|
+				
+
+	Scenario Outline:	30 - Validar Solicitação #lançamentos Informação incompleta - Validar retorno da mensagem : #lançamentos - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#lançamentos									 	      |lançamentos;alterações;últimos		|ignorar					 	|
+				
+
+	Scenario Outline:	31 - Validar Solicitação #Sal Informação incompleta - Validar retorno da mensagem : #sal - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#sal											 	      |saldo;alterações;total				|ignorar					 	|
+				
+
+	Scenario Outline:	32 - Validar Solicitação #Sa Informação incompleta - Validar retorno da mensagem : #sa - Entrar com informação errada ou incompleta
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#sa											 	      |não entendi;#saldo;te ajudar			|ignorar					 	|
+						
+
+	Scenario Outline:	33 - Direcionar para cadastro (Opt-in) Saldo - Validar orientação para cadastro de cliente sem Opt-in - Saldo
+		Given Configurar o teste com o telefone: "553492959531"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Saldo										 	      	  |por aqui;continuar;link				|ignorar					 	|
+						
+
+	Scenario Outline:	34 - Direcionar para cadastro (Opt-in) #Saldo - Validar orientação para cadastro de cliente sem Opt-in - #Saldo
+		Given Configurar o teste com o telefone: "553492959531"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#Saldo											 	      |por aqui;continuar;link				|ignorar					 	|
+						
+
+	Scenario Outline:	35 - Direcionar para cadastro (Opt-in) Extrato - Validar orientação para cadastro de cliente sem Opt-in - Extrato
+		Given Configurar o teste com o telefone: "553492959531"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Extrato											 	  |por aqui;continuar;link				|ignorar					 	|
+						
+
+	Scenario Outline:	36 - Direcionar para cadastro (Opt-in) #Extrato - Validar orientação para cadastro de cliente sem Opt-in - #Extrato
+		Given Configurar o teste com o telefone: "553492959531"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#Extrato										 	      |por aqui;continuar;link				|ignorar					 	|
+						
+
+	Scenario Outline:	37 - Direcionar para cadastro (Opt-in) Limite - Validar orientação para cadastro de cliente sem Opt-in - Limite
+		Given Configurar o teste com o telefone: "553492959531"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|Limite											 	      |por aqui;continuar;link				|ignorar					 	|
+						
+
+	Scenario Outline:	38 - Direcionar para cadastro (Opt-in) #Limite - Validar orientação para cadastro de cliente sem Opt-in - #Limite
+		Given Configurar o teste com o telefone: "553492959531"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#Limite										 	      |por aqui;continuar;link				|ignorar					 	|
+
+	Scenario Outline:	39 - Falar com o gerente e voltar a falar com a BIA - 	Identificar que o cliente deseja falar com o cliente (#gerente) e direcionar para o Chat, depois voltar a falar com a BIA (#bia)
+		Given configurar telefone no filtro por numero "553488896714" e "true"
+		Given limpar contexto da conta <passo> "553488896714"
+		When envio da mensagem "<pergunta>"
+		Then validando retorno da mensagem "<retornoBia>" e "<feedback>" e <passo>
+		
+		Examples: 
+	    |passo	|pergunta							      				  |retornoBia            				|feedback                     	|
+	    |1		|#gerente										 	      |comigo;Gerente;direcionadas;conta	|ignorar					 	|
+		|2		|#bia													  |Gerente;comigo;artificial			|ignorar						|
+						

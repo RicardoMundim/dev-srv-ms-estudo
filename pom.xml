@@ -1,0 +1,347 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>br.com.estudos</groupId>
+	<artifactId>dev-srv-ms-estudo</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+	<name>${project.artifactId}</name>
+	<description>Estudos desenvolvimento</description>
+	<inceptionYear>2020</inceptionYear>
+
+
+	<organization>
+		<name>Estudos</name>
+	</organization>
+
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+
+	<properties>
+		<java.version>1.8</java.version>
+		<bia.code.coverage.ratio>0.8</bia.code.coverage.ratio>
+		<sonar.coverage.exclusions>
+			src/main/java/br/com/bradesco/bia/proxy/*,
+			src/main/java/br/com/bradesco/bia/proxy/whatsapp/config/**,
+			src/main/java/br/com/bradesco/bia/proxy/whatsapp/dto/**
+		</sonar.coverage.exclusions>
+
+		<bia.proxy.comum.version>3.1.6</bia.proxy.comum.version>
+
+		<powermock.version>2.0.2</powermock.version>
+
+		<springfox.swagger2.version>2.9.2</springfox.swagger2.version>
+		<springfox.swagger.ui.version>2.9.2</springfox.swagger.ui.version>
+
+		<!-- maven -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.plugin>3.7.0</maven.compiler.plugin>
+		<maven.jar.plugin>3.0.2</maven.jar.plugin>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+	</properties>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox.swagger2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox.swagger.ui.version}</version>
+		</dependency>
+		<!-- Swagger dependecy end -->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-spatial</artifactId>
+			<version>8.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito2</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+							<goal>build-info</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<rule>
+									<element>PACKAGE</element>
+									<limits>
+										<limit>
+											<counter>LINE</counter>
+											<value>COVEREDRATIO</value>
+											<minimum>${bia.code.coverage.ratio}</minimum>
+										</limit>
+									</limits>
+									<excludes>
+										<!-- classes de application -->
+										<exclude>br.com.bradesco.bia.proxy</exclude>
+
+										<!-- classes de config do spring boot -->
+										<exclude>br.com.bradesco.bia.proxy.whatsapp.config</exclude>
+
+										<!-- classes de dto -->
+										<exclude>br.com.bradesco.bia.proxy.whatsapp.dto</exclude>
+									</excludes>
+								</rule>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dockerfile</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/docker</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/src/main/resources/docker</directory>
+									<filtering>true</filtering>
+									<includes>
+										<include>Dockerfile</include>
+										<include>*.sh</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>enforce-no-snapshots</id>
+							<goals>
+								<goal>enforce</goal>
+							</goals>
+							<configuration>
+								<rules>
+									<requireReleaseDeps>
+										<message>No Snapshots Allowed!</message>
+									</requireReleaseDeps>
+								</rules>
+								<fail>true</fail>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+	<distributionManagement>
+		<repository>
+			<id>${bamboo_inject_dominio}</id>
+			<url>${repository.base}${repository_domain_name}${repository.maven.release}</url>
+		</repository>
+		<snapshotRepository>
+			<id>${bamboo_inject_dominio}</id>
+			<url>${repository.base}${repository_domain_name}${repository.maven.snapshot}</url>
+		</snapshotRepository>
+	</distributionManagement>
+<!-- 	<distributionManagement> -->
+<!-- 		<repository> -->
+<!-- 			<id>central</id> -->
+<!-- 			<name>Repositorio de Releases</name> -->
+<!-- 			<url>http://172.16.19.102:8084/nexus/content/repositories/releases/</url> -->
+<!-- 		</repository> -->
+<!-- 		<snapshotRepository> -->
+<!-- 			<id>nexus</id> -->
+<!-- 			<name>Repositorios de Snapshots</name> -->
+<!-- 			<url>http://172.16.19.102:8084/nexus/content/repositories/snapshots/</url> -->
+<!-- 		</snapshotRepository> -->
+<!-- 	</distributionManagement> -->
+
+
+	<profiles>
+		<profile>
+			<id>jdk8+</id>
+			<activation>
+				<jdk>[1.8,)</jdk>
+			</activation>
+			<properties>
+				<javadoc.doclint>none</javadoc.doclint>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<activation>
+				<property>
+					<name>release</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<configuration>
+							<doclint>${javadoc.doclint}</doclint>
+							<quiet>true</quiet>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>jacoco-prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<excludes>
+								<!-- classes de application -->
+								<exclude>br.com.bradesco.bia.proxy</exclude>
+
+								<!-- classes de config do spring boot -->
+								<exclude>br.com.bradesco.bia.proxy.whatsapp.config</exclude>
+
+								<!-- classes de dto -->
+								<exclude>br.com.bradesco.bia.proxy.whatsapp.dto</exclude>
+							</excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

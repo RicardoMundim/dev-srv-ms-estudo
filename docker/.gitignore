@@ -1,0 +1,4 @@
+/dockerBuild.sh
+/dockerPush.sh
+/gencompose.sh
+/gendockerfile.sh

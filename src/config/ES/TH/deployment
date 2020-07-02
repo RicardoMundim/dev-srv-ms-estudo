@@ -1,0 +1,28 @@
+"env": [
+              {
+                "name": "spring.profiles.active",
+                "value": "th"
+              },
+              {
+                "name": "TZ",
+                "value": "America/Fortaleza"
+              },
+              {
+                "name": "spring.datasource.username",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "wats-srv-bia-secret",
+                    "key": "spring.datasource.username"
+                  }
+                }
+              },
+              {
+                "name": "spring.datasource.password",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "wats-srv-bia-secret",
+                    "key": "spring.datasource.password"
+                  }
+                }
+              }
+            ],
