@@ -43,18 +43,11 @@ public class EstudosApiController {
 
 	@PostMapping(value = "/id")
 	@ApiOperation(value = "EndPoint responsável por receber um ID e retornar o ID com o horário.")
-	public ResponseEntity<IdResponseDto> idService(@RequestBody Integer idEnviado) {
-		IdResponseDto idResponseDto = new IdResponseDto(idEnviado, new Date());
-		return new ResponseEntity<>(idResponseDto, HttpStatus.OK);
-	}
-
-	/*
-	
-	 public ResponseEntity<IdResponseDto> idService(@RequestBody Integer idEnviado) {
+	 public ResponseEntity<IdResponseDto> idService1(@RequestBody Integer idEnviado) {
 	 
-	 	return new ResponseEntity<IdResponseDto>(new IdResponseDto(idEnviado, new Date()), HttpStatus.OK); 
+	 	return new ResponseEntity<>(new IdResponseDto(idEnviado, new Date()), HttpStatus.OK); 
 	 }
-	 
-	*/
+	
+	
 
 }

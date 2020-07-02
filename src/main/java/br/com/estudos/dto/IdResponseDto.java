@@ -16,7 +16,7 @@ public class IdResponseDto {
 
 	private Integer idEnviado;
 	
-	@JsonFormat(pattern = "HH:mm", timezone =  "Brazil/East")
+	@JsonFormat(pattern = "HH:mm", timezone = "Brazil/East")
 	private Date horarioEnvio;
 
 }

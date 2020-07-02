@@ -265,19 +265,6 @@
 			<url>${repository.base}${repository_domain_name}${repository.maven.snapshot}</url>
 		</snapshotRepository>
 	</distributionManagement>
-<!-- 	<distributionManagement> -->
-<!-- 		<repository> -->
-<!-- 			<id>central</id> -->
-<!-- 			<name>Repositorio de Releases</name> -->
-<!-- 			<url>http://172.16.19.102:8084/nexus/content/repositories/releases/</url> -->
-<!-- 		</repository> -->
-<!-- 		<snapshotRepository> -->
-<!-- 			<id>nexus</id> -->
-<!-- 			<name>Repositorios de Snapshots</name> -->
-<!-- 			<url>http://172.16.19.102:8084/nexus/content/repositories/snapshots/</url> -->
-<!-- 		</snapshotRepository> -->
-<!-- 	</distributionManagement> -->
-
 
 	<profiles>
 		<profile>
